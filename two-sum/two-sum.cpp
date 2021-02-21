@@ -1,7 +1,6 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        //only sum elements smaller than target
         int num1 = 0;
         int num2 = 0;
         vector<int> result;
