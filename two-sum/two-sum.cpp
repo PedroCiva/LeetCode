@@ -1,6 +1,7 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
+        //Brute Force
         int num1 = 0;
         int num2 = 0;
         vector<int> result;
