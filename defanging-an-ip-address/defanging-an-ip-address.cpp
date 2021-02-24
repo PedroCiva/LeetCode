@@ -3,7 +3,7 @@ public:
     string defangIPaddr(string address) {
         string s = "";
         int len = address.size();
-        for (auto i : address) {
+        for (auto &i : address) {
             if (i == '.') {
                 s += "[.]";
             }
