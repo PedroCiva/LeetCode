@@ -1,4 +1,5 @@
-//Alternative solution using Hash Table
+//Interesting hash table solution I found
+//Credits to smritipradhan545 
 
 class Solution {
 public:
@@ -14,16 +15,7 @@ public:
         for (auto& n : umap)
         {
             int num = n.second;
-            //Alternative formula I found on LeetCode solutions: good_pairs += ((num)*(num-1))/2;
-            if (num % 2 == 0)
-            {
-                numPairs += num;
-            }
-            else
-            {
-                --num;
-                numPairs += num;
-            }
+            numPairs += ((num)*(num-1))/2;
         }
 
         return numPairs;
