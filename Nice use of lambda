@@ -1,0 +1,48 @@
+//Given an array of integers nums, sort the array in increasing order based on the frequency of the values.
+//If multiple values have the same frequency, sort them in decreasing order.
+
+//Return the sorted array.
+
+class Solution {
+public:
+    // This is to be used as a lambda function for the std::sort to figure out what comes first and after
+    static bool compare_F(pair<int,int>& a, pair<int,int>& b) 
+    {
+        //If same frequency
+        if(a.second == b.second)
+        {
+            return a.first > b.first;
+        }
+        
+        return a.second < b.second;
+    }
+    
+    vector<int> frequencySort(vector<int>& nums) {
+        unordered_map<int,int> m;
+        for(auto& num : nums)
+        {
+            ++m[num];
+        }
+        
+        //Vector for using std::sort
+        vector<pair<int,int>> v;
+        
+        //Add map elements to vector
+        for(auto it : m)
+        {
+            v.push_back(it); // It points to a pair so we good
+        }
+        
+        //Sort vector with our compare_F lambda
+        sort(v.begin(),v.end(),compare_F);
+        vector<int> result;
+        
+        for(auto pair : v)
+        {
+            for(int i = 0 ; i < pair.second;++i)
+                result.push_back(pair.first);
+        }
+        
+        return result;
+    }
+};
